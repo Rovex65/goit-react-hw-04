@@ -9,8 +9,8 @@ export const fetchImagesWithQuery = async (query, page) => {
     query,
     orientation: "landscape",
     page,
+    per_page: 12,
   });
-  console.log(query);
   const response = await axios.get(`/search/photos/`, { params });
   return response.data;
 };
