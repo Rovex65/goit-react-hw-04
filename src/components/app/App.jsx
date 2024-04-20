@@ -5,7 +5,7 @@ import ErrorMessage from "../errorMessage/ErrorMessage";
 import LoadMoreBtn from "../loadMoreBtn/LoadMoreBtn";
 import ImageModal from "../imageModal/ImageModal";
 
-import toast, { Toaster } from "react-hot-toast";
+import { animateScroll } from "react-scroll";
 import { useState, useEffect } from "react";
 import { fetchImagesWithQuery } from "/src/images-api.js";
 import "./App.module.css";
@@ -40,6 +40,10 @@ function App() {
   function closeModal() {
     setIsModalOpen(false);
   }
+
+  useEffect(() => {
+    animateScroll.scrollMore(540, { duration: 500, smooth: true });
+  }, [images]);
 
   useEffect(() => {
     async function fetchImages() {
