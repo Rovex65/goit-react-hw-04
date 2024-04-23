@@ -42,10 +42,6 @@ function App() {
   }
 
   useEffect(() => {
-    animateScroll.scrollMore(540, { duration: 500, smooth: true });
-  }, [images]);
-
-  useEffect(() => {
     async function fetchImages() {
       if (!query) {
         return;
@@ -63,7 +59,10 @@ function App() {
         setImages([...images, ...data.results]);
         setMaxPage(totalPages);
         setShowBtn(page < totalPages);
-        console.log(totalPages);
+        setError(false);
+        if (page > 1) {
+          animateScroll.scrollMore(480, { duration: 500, smooth: true });
+        }
         if (totalPages === 0) {
           setError("No images");
         }

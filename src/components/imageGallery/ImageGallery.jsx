@@ -13,8 +13,10 @@ function ImageGallery({ images, openModal }) {
             key={image.id}
           >
             <ImageCard
-              photo={image.urls.small}
-              descr={image.alt_description}
+              openModal={openModal}
+              image={image}
+              // photo={image.urls.small}
+              // descr={image.alt_description}
             ></ImageCard>
           </li>
         );
